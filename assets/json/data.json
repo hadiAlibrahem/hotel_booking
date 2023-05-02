@@ -1,0 +1,78 @@
+
+[
+  {
+    "id": 100,
+    "name":"Superior Room",
+    "image": "assets/images/room_8.jpg",
+    "price": "$210",
+    "type":"Singlr Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": false,
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  },
+  {
+    "id": 101,
+    "name": "Junior Suite",
+    "image":"assets/images/hotel_room_5.jpg",
+     "price": "$150",
+    "type":"Single Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": true,
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  },
+  {
+    "id": 102,
+    "name": "Classic Queen Room",
+    "image":"assets/images/hotel_room_2.jpg" ,
+    "price": "$320",
+    "type": "Singlr Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": false,
+
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  },
+  {
+    "id": 103,
+    "name": "Luxury King",
+    "image":"assets/images/hotel_room_7.jpg",
+    "price": "$350",
+    "type":"Singlr Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": false,
+
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  },
+  {
+    "id": 104,
+    "name": "Classic Room",
+    "image": "assets/images/hotel_room_3.jpg" ,
+    "price": "$180",
+    "type":"Singlr Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": false,
+
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  },
+  {
+    "id": 105,
+    "name": "Twin Room",
+    "image": "assets/images/room_12.jpg" ,
+    "price": "$250",
+    "type": "Singlr Room",
+    "rate": "4.5",
+    "location": "Phnom Penh",
+    "is_favorited": false,
+    "description":
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+  }
+]
