@@ -4,6 +4,8 @@ class HotelLoginModel {
   UserData? data;
 
   HotelLoginModel.formJson(Map<String, dynamic> json) {
+    print(json);
+
     status = json['status'];
     message = json['message'];
     data = json['data'] != null ? UserData.formJson(json['data']) : null;
