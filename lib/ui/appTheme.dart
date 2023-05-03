@@ -128,7 +128,7 @@ class AppTheme {
       ),
     ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: primaryColors,
         unselectedItemColor: Colors.grey,

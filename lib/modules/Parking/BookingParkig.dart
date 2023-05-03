@@ -68,7 +68,7 @@ class BookingParking extends StatelessWidget {
                       key: Key('txt_get_started'),
                       title: 'Booking now',
 
-                       onTap: () => navigateTo(context, BookNowScreen()),
+                       //onTap: () => navigateTo(context, BookNowScreen(index)),
                      // padding:EdgeInsets.only(left: 48.w, right: 48.w, bottom: 8.h, top: 8.h) ,
                       bgColor: AppTheme.getTheme().primaryColor ,
                       textColor:Colors.white ,

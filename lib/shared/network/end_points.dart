@@ -16,3 +16,5 @@ const UPDATE_PROFILE ='update_profile';
 
 const SEARCH ='products/search';
 
+const BOOK ='book';
+const MYBOOKING='mybooking';

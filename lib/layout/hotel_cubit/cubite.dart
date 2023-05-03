@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/layout/hotel_cubit/states.dart';
+import 'package:hotel_booking/models/booking_model.dart';
 import 'package:hotel_booking/models/categories_model.dart';
 import 'package:hotel_booking/models/chang_favorites_model.dart';
 import 'package:hotel_booking/models/favorites_model.dart';
@@ -8,13 +9,14 @@ import 'package:hotel_booking/models/home_model.dart';
 import 'package:hotel_booking/models/login_model.dart';
 import 'package:hotel_booking/modules/booking_room/Widgets/data.dart';
 import 'package:hotel_booking/modules/favorites/favorites_Screen.dart';
-import 'package:hotel_booking/modules/home/HomeScreen.dart';
-import 'package:hotel_booking/modules/my_booking/myBoohing_screen.dart';
+import 'package:hotel_booking/modules/home/home_screen.dart';
+import 'package:hotel_booking/modules/my_booking/myboohing_screen.dart';
 import 'package:hotel_booking/modules/settings/presentation/pages/settings_page.dart';
 import 'package:hotel_booking/shared/compoment/costanse.dart';
 import 'package:hotel_booking/shared/network/end_points.dart';
 import 'package:hotel_booking/shared/network/remot/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import '../../../shared/network/local/cash_helper.dart';
 
 
@@ -82,6 +84,8 @@ class HotelCubit extends Cubit<HotelStates> {
 
   List<Map<String, dynamic>> features = [
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 100,
       "name": "Superior Room",
       "image": "assets/images/room_8.jpg",
@@ -95,6 +99,8 @@ class HotelCubit extends Cubit<HotelStates> {
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 101,
       "name": "Junior Suite",
       "image": "assets/images/room_11.jpg",
@@ -108,6 +114,8 @@ class HotelCubit extends Cubit<HotelStates> {
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 102,
       "name": "Classic Queen Room",
       "image": "assets/images/room_1.jpg",
@@ -121,6 +129,8 @@ class HotelCubit extends Cubit<HotelStates> {
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 103,
       "name": "Luxury King",
       "image": "assets/images/room_5.jpg",
@@ -134,6 +144,8 @@ class HotelCubit extends Cubit<HotelStates> {
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 104,
       "name": "Classic Room",
       "image": "assets/images/hotel_room_4.jpg",
@@ -147,6 +159,8 @@ class HotelCubit extends Cubit<HotelStates> {
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
     {
+      "endDate": "1",
+      "startDate": "1",
       "id": 105,
       "name": "Twin Room",
       "image": "assets/images/room_9.jpg",
@@ -174,10 +188,21 @@ class HotelCubit extends Cubit<HotelStates> {
   }
 
 
+  void ChangisDate(index,DateTime d1,DateTime d2) {
+    // isFavorited=!isFavorited;
+
+    features[index]["startDate"] = '${DateFormat("dd, MMM").format(d1)}';
+    features[index]["endDate"] = '${DateFormat("dd, MMM").format(d2)}';
+
+
+   // emit(HotelChangisFavoritedState());
+  }
+
+
   int currentIndex = 0;
   List<Widget> bottomScreens = [
     HomeScreen(),
-    MyBookingScreen(),
+    MyBokingScreen(),
     FavoritesScreen(),
     SettingsPage(),
 
@@ -213,19 +238,7 @@ class HotelCubit extends Cubit<HotelStates> {
     });
   }
 
-  CategoriesModel? categoriesModel;
 
-  void getCategories() {
-    DioHelper.getData(
-      url: Get_CATEGORIES,
-    ).then((value) {
-      categoriesModel = CategoriesModel.fromJson(value!.data);
-      emit(HotelSuccessCategoriesState());
-    }).catchError((error) {
-      print(error.toString());
-      emit(HotelErrorCategoriesState());
-    });
-  }
 
   changeFavoritesModel? changefavoritesModel;
 
@@ -295,6 +308,7 @@ class HotelCubit extends Cubit<HotelStates> {
     required String name,
     required String email,
     required String phone,
+
   }) {
     emit(HotelLoadingUpdateUserState());
     DioHelper.putData(
@@ -316,4 +330,60 @@ class HotelCubit extends Cubit<HotelStates> {
       emit(HotelErrorUpdateUserState());
     });
   }
+
+/////////////////////////////////////////////////////////////////////////////////
+
+  BookingModel ?bookingModelApply;
+  void userBook({
+     int? rooms,
+     required DateTime startDate ,
+     required DateTime endDate ,
+  })
+  {
+    emit(HotelBookingLoadingState());
+    DioHelper.postData(
+      url: BOOK,
+      token:token,
+      data: {
+        'startDate':startDate,
+        'endDate':endDate,
+        'rooms':rooms??'',
+      },
+    ).then((value)
+    {
+
+      bookingModelApply=BookingModel.formJson(value?.data);
+//   print(loginModel?.status);
+//   print(loginModel?.message);
+//   print(loginModel?.data?.token);
+      emit(HotelBookingSuccessState(bookingModelApply!));
+    }).catchError((error)
+    {
+      print(error.toString());
+      emit(HotelBookingErrorState(error.toString()));
+    });
+  }
+
+
+
+
+  BookingModel? bookingModel;
+
+  void getUserBook() {
+    emit(HotelLoadingUserBookState());
+    DioHelper.getData(
+      url: MYBOOKING,
+      token: token,
+    ).then((value) {
+      bookingModel = BookingModel.formJson(value!.data);
+     // printFullText(userModel!.data!.name!);
+      emit(HotelSuccessUserBookState(bookingModel));
+    }).catchError((error) {
+      print(error.toString());
+      emit(HotelErrorUserBookState());
+    });
+  }
+
+
+
 }

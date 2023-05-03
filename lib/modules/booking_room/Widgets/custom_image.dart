@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/src/size_extension.dart';
 import 'package:hotel_booking/ui/color_helper.dart';
 
 class CustomImage extends StatelessWidget {
-  CustomImage(this.image,
+  const CustomImage(this.image,
       {this.width = 100,
       this.height = 100,
       this.bgColor,
@@ -44,7 +44,7 @@ class CustomImage extends StatelessWidget {
               color:ColorHelper.dividerColor.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 1,
-              offset: Offset(0, 1), // changes position of shadow
+              offset: const Offset(0, 1), // changes position of shadow
             ),
         ],
       ),
@@ -89,8 +89,8 @@ class BlankImageWidget extends StatefulWidget {
 class _BlankImageWidgetState extends State<BlankImageWidget> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0),
+    return const Padding(
+      padding: EdgeInsets.all(0),
       child: Center(
           child: SizedBox(
         child: Card(

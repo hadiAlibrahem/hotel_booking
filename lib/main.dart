@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hotel_booking/modules/home/HomeScreen.dart';
+import 'package:hotel_booking/modules/home/home_screen.dart';
 import 'package:hotel_booking/shared/bloc_observer.dart';
 import 'package:hotel_booking/shared/compoment/costanse.dart';
 import 'package:hotel_booking/ui/appTheme.dart';
@@ -87,7 +87,8 @@ class MyApp extends StatelessWidget {
                 theme: AppTheme.newLightTheme(),
                 darkTheme: AppTheme.newDarkTheme(),
                 themeMode: HotelCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-                home: IntroductionPage(),
+                home: HotelLayout(),
+                //IntroductionPage(),
               );
             }
           );

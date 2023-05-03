@@ -1,3 +1,4 @@
+import 'package:hotel_booking/models/booking_model.dart';
 import 'package:hotel_booking/models/chang_favorites_model.dart';
 import 'package:hotel_booking/models/login_model.dart';
 
@@ -65,3 +66,33 @@ class HotelChangisFavoritedState extends HotelStates{}
 
 
 class ReadJsonDataState extends HotelStates{}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+class HotelBookingLoadingState extends HotelStates{}
+
+class HotelBookingSuccessState extends HotelStates{
+  final BookingModel ?bookingModelApply;
+
+  HotelBookingSuccessState(this.bookingModelApply);
+}
+
+class HotelBookingErrorState extends HotelStates{
+  final String error;
+
+  HotelBookingErrorState(this.error);
+}
+
+
+class HotelLoadingUserBookState extends HotelStates{}
+
+class HotelSuccessUserBookState extends HotelStates{
+  final BookingModel ?bookingModel;
+
+  HotelSuccessUserBookState(this.bookingModel);
+}
+
+class HotelErrorUserBookState extends HotelStates{}
+
+

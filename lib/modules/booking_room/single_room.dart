@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hotel_booking/layout/hotel_cubit/cubite.dart';
 import 'package:hotel_booking/layout/hotel_cubit/states.dart';
 import 'package:hotel_booking/modules/Parking/BookingParkig.dart';
+import 'package:hotel_booking/modules/book_now/book_now.dart';
 import 'package:hotel_booking/modules/booking_room/Widgets/favorite_box.dart';
 import 'package:hotel_booking/modules/booking_room/Widgets/icon_box.dart';
 import 'package:hotel_booking/modules/login/login_page.dart';
@@ -242,6 +243,7 @@ List<BoardingModel> boarding = [
                       ),
                       RoundCornerButtonWidget(
                         title: 'Book Now',
+                        onTap: () => navigateTo(context, BookNowScreen(index)),
                         bgColor: ColorHelper.primaryColor,
                       ),
 

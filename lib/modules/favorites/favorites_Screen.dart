@@ -100,19 +100,24 @@ class FavoritesScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.only(start: 10,top: 10,end: 10,bottom: 10),
+                            padding: EdgeInsetsDirectional.only(start: 20.w,top: 10.h,end: 10.h,bottom: 10.w),
                             child: Column(
+
 
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+
+                                SizedBox(
+                                  height: 5.0.h,
+                                ),
                                 Text(
                                   HotelCubit.get(context).features[index]['name']!,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    height: 1.3,
-                                    fontSize: 13.0,
-                                  ),
+                                  // style: TextStyle(
+                                  //   height: 1.3.h,
+                                  //   fontSize: 13.0,
+                                  // ),
                                 ),
                                 Spacer(),
                                 Row(
@@ -171,127 +176,9 @@ class FavoritesScreen extends StatelessWidget {
           },
 
         );
-        //   ConditionalBuilder(
-        //   condition: true??false,//state is! ShopLoadingGetFavoritesState,
-        //   builder: (context) =>
-        //       ListView.separated(
-        //         scrollDirection: Axis.horizontal,
-        //         itemBuilder: (context, index) =>
-        //             buildFavItem(1,
-        //                // HotelCubit.get(context)!.features[index]!
-        //             //     ShopCubit.get(context).favoritesModel!.data!.data![index].product
-        //                 //    ,
-        //              context
-        //                   ),
-        //
-        //         separatorBuilder: (context, index) => myDiveder(),
-        //         itemCount:5,
-        //         // ShopCubit
-        //         //     .get(context)
-        //         //     .favoritesModel!.data!.data!.length,
-        //       ),
-        //   fallback: (context) => Center(child: CircularProgressIndicator()),
-        // );
+
       },
     );
   }
 }
-  // Widget buildFavItem(index, context) => Padding(
-  //       padding: const EdgeInsets.all(20.0),
-  //       child: Container(
-  //         height: 120.0,
-  //         child: Row(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           children: [
-  //             Stack(
-  //                 alignment: AlignmentDirectional.bottomStart,
-  //                 children: [
-  //
-  //                   CustomImage(
-  //                     HotelCubit.get(context).features[index]['image']!,
-  //                     width: 120,
-  //                     height: 120,
-  //                     radius: 15,
-  //                   ),
-  //               // Image(
-  //               //   image: NetworkImage(
-  //               //     HotelCubit.get(context).features[index]['image'],
-  //               //   ),
-  //               //   fit: BoxFit.cover,
-  //               //   width: 120.0,
-  //               //   height: 120.0,
-  //               // ),
-  //            //   if (model.discount != 0 && isOldPrice)
-  //                 Container(
-  //                   color: Colors.red,
-  //                   child: Padding(
-  //                     padding: const EdgeInsets.symmetric(horizontal: 5.0),
-  //                     child: Text(
-  //                       'DISCOUNT',
-  //                       style: TextStyle(
-  //                         fontSize: 8.0,
-  //                         color: Colors.white,
-  //                       ),
-  //                     ),
-  //                   ),
-  //                 ),
-  //             ]),
-  //             Expanded(
-  //               child: Column(
-  //                 crossAxisAlignment: CrossAxisAlignment.start,
-  //                 children: [
-  //                   Text(
-  //                     HotelCubit.get(context).features[index]['name']!,
-  //                     maxLines: 2,
-  //                     overflow: TextOverflow.ellipsis,
-  //                     style: TextStyle(
-  //                       height: 1.3,
-  //                       fontSize: 13.0,
-  //                     ),
-  //                   ),
-  //                   Spacer(),
-  //                   Row(
-  //                     children: [
-  //                       Text(
-  //                         HotelCubit.get(context).features[index]['price']!,
-  //                         style: TextStyle(
-  //                           fontSize: 11.0,
-  //                           color: defaultColor,
-  //                         ),
-  //                       ),
-  //                       SizedBox(
-  //                         width: 5.0,
-  //                       ),
-  //                      // if (model.discount != 0 && isOldPrice)
-  //                         Text(
-  //                           HotelCubit.get(context).features[index]['price']!,
-  //
-  //                           style: TextStyle(
-  //                             fontSize: 10.0,
-  //                             color: Colors.grey,
-  //                           //  decoration: TextDecoration.lineThrough,
-  //                           ),
-  //                         ),
-  //                       Spacer(),
-  //                       FavoriteBox(
-  //                         size: 17,
-  //                         onTap:
-  //                      () {
-  //                        return  HotelCubit.get(context)!.ChangisFavorited(index);
-  //                      }, //navigateTo(context, LoginPage()),
-  //                         //onTapFavorite,
-  //                         isFavorited: HotelCubit.get(context).features[index]['is_favorited']!,
-  //
-  //                           //["is_favorited"]
-  //
-  //                       )
-  //                     ],
-  //                   ),
-  //                 ],
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     );
 

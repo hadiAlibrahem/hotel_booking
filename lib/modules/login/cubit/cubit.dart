@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/models/login_model.dart';
 import 'package:hotel_booking/modules/login/cubit/states.dart';
 import 'package:hotel_booking/shared/compoment/components.dart';
+import 'package:hotel_booking/shared/compoment/costanse.dart';
 import 'package:hotel_booking/shared/network/end_points.dart';
 import 'package:hotel_booking/shared/network/remot/dio_helper.dart';
 
@@ -16,8 +17,6 @@ class HotelLoginCubit extends Cubit<HotelLoginStates>{
   static HotelLoginCubit get(context)=>BlocProvider.of(context);
 
   HotelLoginModel ?loginModel;
-
-
   void userLogin({
   required String email,
   required String password,
@@ -26,6 +25,7 @@ class HotelLoginCubit extends Cubit<HotelLoginStates>{
     emit(HotelLoginLoadingState());
   DioHelper.postData(
       url: LOGIN,
+
       data: {
         'email':email,
         'password':password,
