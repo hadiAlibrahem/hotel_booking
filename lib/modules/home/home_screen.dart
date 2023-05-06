@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/src/size_extension.dart';
+import 'package:hotel_booking/admin_modeues/admin_screen.dart';
 import 'package:hotel_booking/layout/hotel_cubit/cubite.dart';
 import 'package:hotel_booking/layout/hotel_cubit/states.dart';
 import 'package:hotel_booking/modules/Booking_Convention_Hall/convention_hall_screen.dart';
@@ -141,7 +142,10 @@ class HomeScreen extends StatelessWidget {
                            // Padding_Containar: EdgeInsets.only( bottom: 10,left: 50,right: 50,top: 10),
                             key: Key('txt_get_starte'),
                             title: 'Booking a class room',
-                             onTap: () => navigateTo(context, ConventionHallScreen()),
+                             onTap: () => navigateTo(context,
+                                 AdminScreen(),
+                                 //ConventionHallScreen()
+                             ),
                          //   padding:const EdgeInsets.only(left: 48, right: 24, bottom: 8, top: 8) ,
                             bgColor: AppTheme.getTheme().primaryColor ,
                             textColor:Colors.white ,

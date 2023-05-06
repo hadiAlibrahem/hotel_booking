@@ -95,4 +95,5 @@ class HotelSuccessUserBookState extends HotelStates{
 
 class HotelErrorUserBookState extends HotelStates{}
 
-
+//////////////////////////////////////////////////////////////////////////
+class HotelSetDate extends HotelStates{}

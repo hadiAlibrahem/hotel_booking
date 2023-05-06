@@ -87,8 +87,9 @@ class MyApp extends StatelessWidget {
                 theme: AppTheme.newLightTheme(),
                 darkTheme: AppTheme.newDarkTheme(),
                 themeMode: HotelCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-                home: HotelLayout(),
-                //IntroductionPage(),
+                 
+                 home: HotelLayout(),
+               // IntroductionPage(),
               );
             }
           );

@@ -4,7 +4,7 @@ import 'package:hotel_booking/ui/appTheme.dart';
 
 
 class RoomRangeSelectionWidget extends StatefulWidget {
-  final Function(int, int, int)? onChnage;
+  final Function(int, int)? onChnage;
   final bool? barrierDismissible;
   final int? room;
   final int? ad;
@@ -125,7 +125,7 @@ class _RoomRangeSelectionWidgetState extends State<RoomRangeSelectionWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () {
                                       try {
-                                        widget.onChnage!(room, ad, ch);
+                                        widget.onChnage!(room, ad);
                                         Navigator.pop(context);
                                       } catch (e) {}
                                     },

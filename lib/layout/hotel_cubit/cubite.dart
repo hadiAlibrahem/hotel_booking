@@ -84,6 +84,7 @@ class HotelCubit extends Cubit<HotelStates> {
 
   List<Map<String, dynamic>> features = [
     {
+      "room": "1",
       "endDate": "1",
       "startDate": "1",
       "id": 100,
@@ -98,7 +99,7 @@ class HotelCubit extends Cubit<HotelStates> {
       "description":
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
-    {
+    {  "room": "1",
       "endDate": "1",
       "startDate": "1",
       "id": 101,
@@ -113,7 +114,7 @@ class HotelCubit extends Cubit<HotelStates> {
       "description":
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
-    {
+    {  "room": "1",
       "endDate": "1",
       "startDate": "1",
       "id": 102,
@@ -128,7 +129,7 @@ class HotelCubit extends Cubit<HotelStates> {
       "description":
           "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
     },
-    {
+    {  "room": "1",
       "endDate": "1",
       "startDate": "1",
       "id": 103,
@@ -146,6 +147,8 @@ class HotelCubit extends Cubit<HotelStates> {
     {
       "endDate": "1",
       "startDate": "1",
+      "room": "1",
+
       "id": 104,
       "name": "Classic Room",
       "image": "assets/images/hotel_room_4.jpg",
@@ -175,6 +178,21 @@ class HotelCubit extends Cubit<HotelStates> {
     },
   ];
 
+
+  int room = 1;
+  int ad = 2;
+  DateTime? startDate;
+  DateTime ?endDate ;
+
+  // void setDate({ roomm,  add , startDatee, endDatee}){
+  //
+  //   room =roomm;
+  //   ad=add;
+  //   startDate=startDatee;
+  //   endDate=endDatee;
+  //   emit (HotelSetDate());
+  // }
+
   //bool  isavorited;
   bool getisFavorited(index) {
     bool isFavorited = features[index]["is_favorited"];
@@ -188,11 +206,12 @@ class HotelCubit extends Cubit<HotelStates> {
   }
 
 
-  void ChangisDate(index,DateTime d1,DateTime d2) {
+  void ChangisDate(index, DateTime d1, DateTime d2, int room) {
     // isFavorited=!isFavorited;
 
     features[index]["startDate"] = '${DateFormat("dd, MMM").format(d1)}';
     features[index]["endDate"] = '${DateFormat("dd, MMM").format(d2)}';
+    features[index]["room"] = '$room';
 
 
    // emit(HotelChangisFavoritedState());

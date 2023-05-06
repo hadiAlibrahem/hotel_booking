@@ -473,7 +473,7 @@ class _HotelListLandingPageState extends State<HotelListLandingPage>
                         room: 1,
                         ch: 0,
                         barrierDismissible: true,
-                        onChnage: (ro, a, c) {
+                        onChnage: (ro, a) {
                           setState(() {
                             room = ro;
                             ad = a;

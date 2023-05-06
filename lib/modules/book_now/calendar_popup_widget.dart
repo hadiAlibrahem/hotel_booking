@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/src/size_extension.dart';
+import 'package:hotel_booking/layout/hotel_cubit/cubite.dart';
 import 'package:hotel_booking/ui/appTheme.dart';
 import 'package:intl/intl.dart';
 
 import 'custom_calendar_widget.dart';
-
 class CalendarPopupWidget extends StatefulWidget {
   final DateTime? minimumDate;
   final DateTime? maximumDate;
@@ -13,7 +13,6 @@ class CalendarPopupWidget extends StatefulWidget {
   final DateTime? initialEndDate;
   final Function(DateTime?, DateTime?)? onApplyClick;
   final Function? onCancelClick;
-
   const CalendarPopupWidget(
       {Key? key,
       this.initialStartDate,
@@ -24,7 +23,6 @@ class CalendarPopupWidget extends StatefulWidget {
       this.minimumDate,
       this.maximumDate})
       : super(key: key);
-
   @override
   _CalendarPopupWidgetState createState() => _CalendarPopupWidgetState();
 }
@@ -180,7 +178,12 @@ class _CalendarPopupWidgetState extends State<CalendarPopupWidget>
                                 setState(() {
                                   startDate = startDateData;
                                   endDate = endDateData;
+                                  //HotelCubit.get(context).setDate(startDatee:  startDate,endDatee:endDate);
+
                                 });
+                                //HotelCubit.get(context).ChangisDate(1, HotelCubit.get(context).startDate, HotelCubit.get(context).endDate);
+
+
                               },
                             ),
                             Padding(
@@ -209,12 +212,16 @@ class _CalendarPopupWidgetState extends State<CalendarPopupWidget>
                                       // animationController.reverse().then((f) {
 
                                       // });
-                                      widget.onApplyClick!(
-                                          startDate, endDate);
-                                      Navigator.pop(context);
+
+
+                                    widget.onApplyClick!(startDate, endDate);
+                                    Navigator.pop(context);
+
+
+
                                     } catch (e) {}
                                   },
-                                  child: Center(
+                                  child: const Center(
                                     child: Text(
                                       'apply',
                                       style: TextStyle(
